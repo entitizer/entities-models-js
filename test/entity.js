@@ -17,4 +17,11 @@ describe('Entity', () => {
 		});
 	});
 
+	it('should filter invalid keys', () => {
+		const entity = Entity.create({ id: 1, key: '1' });
+
+		assert.equal(undefined, entity.get('key'));
+		assert.equal(1, entity.get('id'));
+	});
+
 });
