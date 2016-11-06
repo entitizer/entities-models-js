@@ -1,0 +1,12 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "rules": {
+    "no-new": 1
+  },
+  "globals": {
+    "describe": false,
+    "it": false
+  }
+}
