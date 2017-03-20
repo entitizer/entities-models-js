@@ -1,7 +1,14 @@
 
-import { IModel, Model, PlainObject } from './model';
+import { IModel, Model, PlainObject, IPlainObject } from './model';
 
 export type EntityTypeValue = 'P' | 'O' | 'L' | 'E';
+
+export type EntityDataItem = {
+    value: string;
+    label?: string;
+}
+
+export type EntityData = IPlainObject<EntityDataItem[]>;
 
 /**
  * Entity interface
@@ -42,6 +49,8 @@ export interface IEntity extends IModel {
 
     readonly type: EntityTypeValue;
 
+    readonly data: EntityData;
+
     readonly oldId: number;
     readonly oldSlug: string;
 }
@@ -54,6 +63,7 @@ export class Entity extends Model implements IEntity {
     get lang(): string {
         return this.get<string>('lang');
     }
+
     get id(): number {
         return this.get<number>('id');
     }
@@ -96,6 +106,14 @@ export class Entity extends Model implements IEntity {
 
     get type(): EntityTypeValue {
         return this.get<EntityTypeValue>('type');
+    }
+
+    get data(): EntityData {
+        return this.get<EntityData>('data');
+    }
+
+    set data(data: EntityData) {
+        this.set<EntityData>('data', data);
     }
 
     get oldId(): number {
