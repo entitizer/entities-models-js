@@ -1,28 +1,26 @@
-'use strict';
 
-const Utils = module.exports;
 
-Utils.isString = (data) => {
+export function isString(data) {
 	return typeof data === 'string';
-};
+}
 
-Utils.isNull = (data) => {
+export function isNull (data) {
 	return data === null;
-};
+}
 
-Utils.isUndefined = (data) => {
+export function isUndefined(data) {
 	return data === undefined;
-};
+}
 
-Utils.isNullOrUndefined = (data) => {
+export function isNullOrUndefined(data) {
 	return data === null || data === undefined;
-};
+}
 
-Utils.keys = (data) => {
+export function keys(data) {
 	return Object.keys(data);
-};
+}
 
-Utils.pick = (obj, keys) => {
+export function pick(obj, keys) {
 	const nobj = {};
 
 	for (let i = keys.length - 1; i >= 0; i--) {
@@ -30,4 +28,4 @@ Utils.pick = (obj, keys) => {
 	}
 
 	return nobj;
-};
+}
