@@ -1,5 +1,6 @@
 
-export type PlainObject = { [index: string]: any }
+export type IPlainObject<T> = { [index: string]: T }
+export type PlainObject = IPlainObject<any>;
 
 function checkField(name: string) {
     if (typeof name !== 'string') {

@@ -1,3 +1,3 @@
-# entities-models
+# entitizer.models
 
-Entitizer entities models. Helper classes.
+Entitizer data models.
