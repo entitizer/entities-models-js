@@ -26,9 +26,7 @@ export abstract class Model implements IModel {
             if (typeof fields !== 'object') {
                 throw new Error('`fields` param must be an oject');
             }
-            for (let prop in fields) {
-                this.set(prop, fields[prop]);
-            }
+            this.set(fields);
         }
     }
 
