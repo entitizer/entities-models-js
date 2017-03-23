@@ -1,7 +1,15 @@
 
 import { IModel, Model, PlainObject, IPlainObject } from './model';
 
-export type EntityTypeValue = 'P' | 'O' | 'L' | 'E';
+export type EntityTypeValue = 'H' | 'P' | 'O' | 'L' | 'E';
+
+export class EntityTypes {
+    static PERSON: EntityTypeValue = 'H';
+    static PRODUCT: EntityTypeValue = 'P';
+    static ORGANIZATION: EntityTypeValue = 'O';
+    static LOCATION: EntityTypeValue = 'L';
+    static EVENT: EntityTypeValue = 'E';
+}
 
 export type EntityDataItem = {
     value: string;
