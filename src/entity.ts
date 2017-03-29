@@ -61,6 +61,7 @@ export interface IEntity extends IModel {
 
     readonly oldId: number;
     readonly oldSlug: string;
+    readonly types: string[];
 }
 
 /**
@@ -171,6 +172,13 @@ export class Entity extends Model implements IEntity {
     }
     set oldSlug(value: string) {
         this.set<string>('oldSlug', value);
+    }
+
+    get types(): string[] {
+        return this.get<string[]>('types');
+    }
+    set types(value: string[]) {
+        this.set<string[]>('types', value);
     }
 
     static create(fields?: PlainObject): Entity {
