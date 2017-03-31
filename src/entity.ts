@@ -59,7 +59,7 @@ export interface IEntity extends IModel {
 
     readonly data: EntityData;
 
-    readonly oldId: number;
+    readonly oldId: string;
     readonly oldSlug: string;
     readonly types: string[];
 }
@@ -160,11 +160,11 @@ export class Entity extends Model implements IEntity {
         this.set<EntityData>('data', data);
     }
 
-    get oldId(): number {
-        return this.get<number>('oldId');
+    get oldId(): string {
+        return this.get<string>('oldId');
     }
-    set oldId(value: number) {
-        this.set<number>('oldId', value);
+    set oldId(value: string) {
+        this.set<string>('oldId', value);
     }
 
     get oldSlug(): string {
