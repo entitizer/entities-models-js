@@ -43,13 +43,13 @@ export interface IEntity extends IModel {
     /**
      * Wikipadia page id
      */
-    readonly pageId: number;
+    readonly wikiPageId: number;
     readonly aliases: string[];
     readonly extract: string;
     /**
      * Wikipadia page title
      */
-    readonly title: string;
+    readonly wikiTitle: string;
     /**
      * Wikipadia image name
      */
@@ -59,8 +59,8 @@ export interface IEntity extends IModel {
 
     readonly data: EntityData;
 
-    readonly oldId: string;
-    readonly oldSlug: string;
+    // readonly oldId: string;
+    // readonly oldSlug: string;
     readonly types: string[];
 }
 
@@ -111,10 +111,10 @@ export class Entity extends Model implements IEntity {
         this.set<string>('description', value);
     }
 
-    get pageId(): number {
+    get wikiPageId(): number {
         return this.get<number>('pageId');
     }
-    set pageId(value: number) {
+    set wikiPageId(value: number) {
         this.set<number>('pageId', value);
     }
 
@@ -132,10 +132,10 @@ export class Entity extends Model implements IEntity {
         this.set<string>('extract', value);
     }
 
-    get title(): string {
+    get wikiTitle(): string {
         return this.get<string>('title');
     }
-    set title(value: string) {
+    set wikiTitle(value: string) {
         this.set<string>('title', value);
     }
 
@@ -160,19 +160,19 @@ export class Entity extends Model implements IEntity {
         this.set<EntityData>('data', data);
     }
 
-    get oldId(): string {
-        return this.get<string>('oldId');
-    }
-    set oldId(value: string) {
-        this.set<string>('oldId', value);
-    }
+    // get oldId(): string {
+    //     return this.get<string>('oldId');
+    // }
+    // set oldId(value: string) {
+    //     this.set<string>('oldId', value);
+    // }
 
-    get oldSlug(): string {
-        return this.get<string>('oldSlug');
-    }
-    set oldSlug(value: string) {
-        this.set<string>('oldSlug', value);
-    }
+    // get oldSlug(): string {
+    //     return this.get<string>('oldSlug');
+    // }
+    // set oldSlug(value: string) {
+    //     this.set<string>('oldSlug', value);
+    // }
 
     get types(): string[] {
         return this.get<string[]>('types');
