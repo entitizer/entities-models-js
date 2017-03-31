@@ -60,12 +60,23 @@ export abstract class Model implements IModel {
                 continue;
             }
             let value = this._fields[prop];
-            if (value && typeof value.toJSON === 'function') {
-                value = value.toJSON();
+            // recursive toJSON
+            value = localToJSON(value);
+
+            if (undefined !== value) {
+                fields[prop] = value;
             }
-            fields[prop] = value;
         }
 
         return fields;
     }
+}
+
+function localToJSON(value: any): any {
+    if (typeof value.toJSON === 'function') {
+        value = value.toJSON();
+    } else if (Array.isArray(value)) {
+        return value.map(item => localToJSON(item));
+    }
+    return value;
 }
