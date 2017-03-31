@@ -51,6 +51,10 @@ export interface IEntity extends IModel {
      */
     readonly wikiTitle: string;
     /**
+     * English Wikipedia page title
+     */
+    readonly enWikiTitle: string;
+    /**
      * Wikipadia image name
      */
     readonly wikiImage: string;
@@ -112,10 +116,10 @@ export class Entity extends Model implements IEntity {
     }
 
     get wikiPageId(): number {
-        return this.get<number>('pageId');
+        return this.get<number>('wikiPageId');
     }
     set wikiPageId(value: number) {
-        this.set<number>('pageId', value);
+        this.set<number>('wikiPageId', value);
     }
 
     get aliases(): string[] {
@@ -133,10 +137,17 @@ export class Entity extends Model implements IEntity {
     }
 
     get wikiTitle(): string {
-        return this.get<string>('title');
+        return this.get<string>('wikiTitle');
     }
     set wikiTitle(value: string) {
-        this.set<string>('title', value);
+        this.set<string>('wikiTitle', value);
+    }
+
+    get enWikiTitle(): string {
+        return this.get<string>('enWikiTitle');
+    }
+    set enWikiTitle(value: string) {
+        this.set<string>('enWikiTitle', value);
     }
 
     get wikiImage(): string {
