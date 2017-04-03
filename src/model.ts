@@ -73,6 +73,9 @@ export abstract class Model implements IModel {
 }
 
 function localToJSON(value: any): any {
+    if (~[null, undefined].indexOf(value)) {
+        return value;
+    }
     if (typeof value.toJSON === 'function') {
         value = value.toJSON();
     } else if (Array.isArray(value)) {
