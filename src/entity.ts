@@ -66,6 +66,11 @@ export interface IEntity extends IModel {
     // readonly oldId: string;
     // readonly oldSlug: string;
     readonly types: string[];
+
+    /**
+     * Country code (ISO 3166-1 alpha-2 code), upper case
+     */
+    readonly cc2: string;
 }
 
 /**
@@ -190,6 +195,16 @@ export class Entity extends Model implements IEntity {
     }
     set types(value: string[]) {
         this.set<string[]>('types', value);
+    }
+
+    get cc2(): string {
+        return this.get<string>('cc2');
+    }
+    set cc2(value: string) {
+        if (typeof value === 'string') {
+            value = value.trim().toUpperCase();
+        }
+        this.set<string>('cc2', value);
     }
 
     static create(fields?: PlainObject): Entity {
