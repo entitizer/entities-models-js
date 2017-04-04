@@ -71,6 +71,11 @@ export interface IEntity extends IModel {
      * Country code (ISO 3166-1 alpha-2 code), upper case
      */
     readonly cc2: string;
+
+    /**
+     * Entity popularity rank
+     */
+    readonly rank: number;
 }
 
 /**
@@ -205,6 +210,13 @@ export class Entity extends Model implements IEntity {
             value = value.trim().toUpperCase();
         }
         this.set<string>('cc2', value);
+    }
+
+    get rank(): number {
+        return this.get<number>('rank');
+    }
+    set rank(value: number) {
+        this.set<number>('rank', value);
     }
 
     static create(fields?: PlainObject): Entity {
