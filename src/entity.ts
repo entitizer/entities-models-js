@@ -24,7 +24,7 @@ export type EntityData = IPlainObject<EntityDataItem[]>;
 export interface IEntity extends IModel {
     readonly lang: string;
     /**
-     * Entitizer entity id
+     * Entitizer entity id: LANG-WIKIDATA_ID
      */
     readonly id: string;
     /**
