@@ -223,3 +223,63 @@ export class Entity extends Model implements IEntity {
         return new Entity(fields);
     }
 }
+
+/**
+ * Entity type
+ */
+export type EntityType = {
+    lang?: string;
+    /**
+     * Entitizer entity id: LANG-WIKIDATA_ID
+     */
+    id?: string;
+    /**
+     * Wikidata id
+     */
+    wikiId?: string;
+    /**
+     * Entity name = WikiEntity label
+     */
+    name?: string;
+    /**
+     * Entity abbreviation
+     */
+    abbr?: string;
+    description?: string;
+    /**
+     * Wikipadia page id
+     */
+    wikiPageId?: number;
+    aliases?: string[];
+    extract?: string;
+    /**
+     * Wikipadia page title
+     */
+    wikiTitle?: string;
+    /**
+     * English Wikipedia page title
+     */
+    enWikiTitle?: string;
+    /**
+     * Wikipadia image name
+     */
+    wikiImage?: string;
+
+    type?: EntityTypeValue;
+
+    data?: EntityData;
+
+    // readonly oldId: string;
+    // readonly oldSlug: string;
+    types?: string[];
+
+    /**
+     * Country code (ISO 3166-1 alpha-2 code), upper case
+     */
+    cc2?: string;
+
+    /**
+     * Entity popularity rank
+     */
+    rank?: number;
+}
