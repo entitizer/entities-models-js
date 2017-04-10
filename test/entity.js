@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Entity = require('../lib/entity').Entity;
+const Entity = require('../lib/entity').EntityModel;
 
 describe('Entity', () => {
 

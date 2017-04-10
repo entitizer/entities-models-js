@@ -21,7 +21,7 @@ export type EntityData = IPlainObject<EntityDataItem[]>;
 /**
  * Entity interface
  */
-export interface IEntity extends IModel {
+export interface IEntityModel extends IModel {
     readonly lang: string;
     /**
      * Entitizer entity id: LANG-WIKIDATA_ID
@@ -81,7 +81,7 @@ export interface IEntity extends IModel {
 /**
  * Entity class
  */
-export class Entity extends Model implements IEntity {
+export class EntityModel extends Model implements IEntityModel {
 
     get lang(): string {
         return this.get<string>('lang');
@@ -219,15 +219,15 @@ export class Entity extends Model implements IEntity {
         this.set<number>('rank', value);
     }
 
-    static create(fields?: PlainObject): Entity {
-        return new Entity(fields);
+    static create(fields?: PlainObject): EntityModel {
+        return new EntityModel(fields);
     }
 }
 
 /**
  * Entity type
  */
-export type EntityType = {
+export type Entity = {
     lang?: string;
     /**
      * Entitizer entity id: LANG-WIKIDATA_ID
